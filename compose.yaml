@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build: .
+    container_name: centricgateway-app
+    ports:
+      - "8084:8080"
+    labels:
+      org.springframework.boot.readiness-check.tcp.disable: true
+    networks:
+      - centricgateway-network
+
+networks:
+  centricgateway-network:
+    driver: bridge
